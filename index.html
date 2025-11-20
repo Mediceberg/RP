@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>REPUTA — الصفحة الرسمية للتوكين</title>
+  <meta name="description" content="REPUTA (RPT) — توكين السمعة والموثوقية على Pi Testnet. معلومات التوكن، كيفية الإضافة إلى المحفظة، وطرق التوزيع." />
+  <link rel="icon" href="/RP/token.png" />
+  <style>
+    :root{
+      --bg:#0b1020; --card:#0f1724; --muted:#94a3b8; --accent:#4db5ff; --glass:rgba(255,255,255,0.04);
+      --success:#22c55e; --danger:#ff6b6b;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#071022);font-family:Inter, "Segoe UI", Tahoma, sans-serif;color:#e6eef8;line-height:1.6}
+    .container{max-width:1100px;margin:36px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7efcff);display:flex;align-items:center;justify-content:center;color:#071022;font-weight:700;font-size:22px;box-shadow:0 6px 18px rgba(77,181,255,0.12)}
+    h1{margin:0;font-size:24px}
+    p.lead{color:var(--muted);margin:6px 0 0}
+    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .stats{display:flex;flex-direction:column;gap:8px}
+    .stat{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:10px;background:var(--glass)}
+    .muted{color:var(--muted);font-size:13px}
+    .big{font-size:20px;font-weight:700}
+    .actions{display:flex;gap:10px}
+    .btn{background:linear-gradient(90deg,var(--accent),#6be8ff);color:#041025;padding:10px 14px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(77,181,255,0.12)}
+    .section{margin-top:20px}
+    .row{display:flex;gap:18px;align-items:flex-start}
+    .col-2{flex:2}
+    .col-1{flex:1}
+    code.kv{background:rgba(0,0,0,0.25);padding:6px 8px;border-radius:6px;font-family:monospace}
+    footer{margin-top:32px;color:var(--muted);text-align:center;font-size:13px}
+    ul.list{padding-left:18px;margin:6px 0}
+    .badge{background:rgba(77,181,255,0.12);color:var(--accent);padding:6px 8px;border-radius:999px;font-weight:700}
+    .notice{background:linear-gradient(90deg,rgba(77,181,255,0.06),rgba(77,181,255,0.02));padding:10px;border-radius:10px;border:1px solid rgba(77,181,255,0.06);color:var(--muted)}
+    .flex{display:flex;gap:12px;align-items:center}
+    @media (max-width:900px){.grid.cols-3{grid-template-columns:1fr}.row{flex-direction:column}.brand h1{font-size:18px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">R</div>
+        <div>
+          <h1>REPUTA <span class="muted">(RPT)</span></h1>
+          <p class="lead">توكن السمعة والاعتمادية على شبكة Pi Testnet — شفاف، قابل للتجربة، ومخصص لتجارب الائتمان اللامركزي.</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn" onclick="copyIssuer()">نسخ Issuer</button>
+        <button class="btn ghost" onclick="copyDistributor()">نسخ Distributor</button>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="card grid cols-3">
+        <div>
+          <h3 class="muted">معلومات أساسية</h3>
+          <div class="stats">
+            <div class="stat"><div class="muted">اسم التوكن</div><div class="big">REPUTA</div></div>
+            <div class="stat"><div class="muted">رمز</div><div class="big">RPT</div></div>
+            <div class="stat"><div class="muted">الإجمالي</div><div class="big">100,000,000</div></div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="muted">العناوين</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+            <div class="card">
+              <div class="muted">Issuer (Public)</div>
+              <div class="kv">GB6SAOT4KIWL3Z5MPOI5CNOCUKIMZZ5ZZF3YNN7ZO2VDZH5VPQWYCJCI</div>
+            </div>
+            <div class="card">
+              <div class="muted">Distributor (Public)</div>
+              <div class="kv">GBQ2FALQT3KFAICK35TJKGOJWHT43KCCB73G6H546O54L7ET2XVJGLLM</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="muted">الوصلات السريعة</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
+            <div class="notice">home domain: <strong>mediceberg.github.io/RP</strong></div>
+            <div class="muted">pi.toml:</div>
+            <a class="kv" href="https://mediceberg.github.io/RP/.well-known/pi.toml" target="_blank">https://mediceberg.github.io/RP/.well-known/pi.toml</a>
+            <div style="height:8px"></div>
+            <div class="muted">Explorer (transaction sample):</div>
+            <a class="kv" href="https://api.testnet.minepi.com/transactions/" target="_blank">Pi Testnet Explorer</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row section">
+        <div class="col-2 card">
+          <h3>عن REPUTA</h3>
+          <p class="muted">REPUTA هو توكن يركز على قياس السمعة والموثوقية، مبني لتجارب الائتمان اللامركزي وطرائق التصنيف. تم إصدار التوكن على شبكة Pi Testnet لأغراض الاختبار والتكامل مع المحافظ والـ DEX.</p>
+
+          <h4 class="muted" style="margin-top:12px">كيفية إضافة التوكن إلى Pi Wallet</h4>
+          <ol class="list">
+            <li>تأكد من أن <code class="kv">home_domain</code> مضبوط على حساب الـ Issuer.</li>
+            <li>تأكد من أن الملف <code class="kv">/.well-known/pi.toml</code> متاح عبر HTTPS.</li>
+            <li>في Pi Wallet (Testnet) اختر: Tokens → Add Token → ابحث عن <strong>RPT</strong> أو انتظر الفحص التلقائي.</li>
+          </ol>
+
+          <h4 class="muted" style="margin-top:12px">كيفية تجربة التداول (Liquidity Pool)</h4>
+          <p class="muted">بمجرد ظهور التوكن في المحفظة، يمكنك إنشاء Pool بين <code class="kv">Test-Pi</code> و <code class="kv">RPT</code> داخل محفظة Pi لتجربة Swaps وتداول التوكن.</p>
+
+          <h4 class="muted" style="margin-top:12px">ملاحظات أمان</h4>
+          <ul class="list">
+            <li>المفاتيح السرية يجب أن تبقى آمنة ولا تُنشر علناً.</li>
+            <li>في بيئة الاختبار Testnet يمكنك تجربة كل العمليات بحرية، لكن في Mainnet يجب توخي الحذر.</li>
+          </ul>
+        </div>
+
+        <aside class="col-1 card">
+          <h3 class="muted">أداء التوزيع</h3>
+          <div class="muted">Distributor balance</div>
+          <div style="font-size:20px;font-weight:700;margin-top:8px">100,000,000 RPT</div>
+
+          <div style="margin-top:16px">
+            <button class="btn" onclick="openAddToken()">إظهار في Pi Wallet (Add Token)</button>
+            <button class="btn ghost" onclick="openToml()">عرض pi.toml</button>
+          </div>
+
+          <div style="margin-top:18px" class="muted">تحديث الحالة</div>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <div class="badge">Testnet</div>
+            <div class="badge" style="background:rgba(34,197,94,0.12);color:var(--success);">Active</div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="section card">
+        <h3 class="muted">تفاصيل تقنية (سريعة)</h3>
+        <pre style="white-space:pre-wrap;background:rgba(0,0,0,0.18);padding:12px;border-radius:8px;color:#dff4ff;font-size:13px">Issuer: GB6SAOT4KIWL3Z5MPOI5CNOCUKIMZZ5ZZF3YNN7ZO2VDZH5VPQWYCJCI
+Distributor: GBQ2FALQT3KFAICK35TJKGOJWHT43KCCB73G6H546O54L7ET2XVJGLLM
+Asset Code: RPT
+Total supply: 100000000
+Home Domain: mediceberg.github.io/RP
+pi.toml: https://mediceberg.github.io/RP/.well-known/pi.toml</pre>
+      </div>
+
+      <div class="section card">
+        <h3 class="muted">روابط سريعة وإجراءات</h3>
+        <ul class="list">
+          <li>لنسخ أي عنوان اضغط على الأزرار أعلى الصفحة.</li>
+          <li>إن أردت سكربتات Node جاهزة للتوزيع والـ mint أرسل "أريد السكربتات".</li>
+          <li>لأنني أستضيف الملفات عبر GitHub Pages، قد يستغرق الفحص بضع دقائق.</li>
+        </ul>
+      </div>
+
+    </main>
+
+    <footer>
+      تم الإنشاء بواسطة فريق TechNews · REPUTA · Pi Testnet
+    </footer>
+  </div>
+
+  <script>
+    function copyToClipboard(text){navigator.clipboard.writeText(text).then(()=>alert('تم نسخ بنجاح'))}
+    function copyIssuer(){copyToClipboard('GB6SAOT4KIWL3Z5MPOI5CNOCUKIMZZ5ZZF3YNN7ZO2VDZH5VPQWYCJCI')}
+    function copyDistributor(){copyToClipboard('GBQ2FALQT3KFAICK35TJKGOJWHT43KCCB73G6H546O54L7ET2XVJGLLM')}
+    function openToml(){window.open('https://mediceberg.github.io/RP/.well-known/pi.toml','_blank')}
+    function openAddToken(){alert('افتح تطبيق Pi Wallet على جهازك واذهب إلى Tokens → Add Token → ابحث عن RPT أو انتظر الفحص التلقائي.')}
+  </script>
+</body>
+</html>
