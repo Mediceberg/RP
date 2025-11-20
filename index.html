@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>REPUTA — الصفحة الرسمية للتوكين</title>
-  <meta name="description" content="REPUTA (RPT) — توكين السمعة والموثوقية على Pi Testnet. معلومات التوكن، كيفية الإضافة إلى المحفظة، وطرق التوزيع." />
-  <link rel="icon" href="/RP/token.png" />
+  <meta name="description" content="REPUTA — توكين السمعة والموثوقية على Pi Testnet. معلومات التوكن، كيفية الإضافة إلى المحفظة، وطرق التوزيع." />
+  <link rel="icon" href="/RP/logo.png" />
   <style>
     :root{
       --bg:#0b1020; --card:#0f1724; --muted:#94a3b8; --accent:#4db5ff; --glass:rgba(255,255,255,0.04);
@@ -48,7 +48,7 @@
       <div class="brand">
         <div class="logo">R</div>
         <div>
-          <h1>REPUTA <span class="muted">(RPT)</span></h1>
+          <h1>REPUTA</h1>
           <p class="lead">توكن السمعة والاعتمادية على شبكة Pi Testnet — شفاف، قابل للتجربة، ومخصص لتجارب الائتمان اللامركزي.</p>
         </div>
       </div>
@@ -64,9 +64,10 @@
           <h3 class="muted">معلومات أساسية</h3>
           <div class="stats">
             <div class="stat"><div class="muted">اسم التوكن</div><div class="big">REPUTA</div></div>
-            <div class="stat"><div class="muted">رمز</div><div class="big">RPT</div></div>
-            <div class="stat"><div class="muted">الإجمالي</div><div class="big">100,000,000</div></div>
+            <div class="stat"><div class="muted">رمز</div><div class="big">REPUTA</div></div>
+            <div class="stat"><div class="muted">الإجمالي</div><div class="big">10,000,000</div></div>
           </div>
+          <img src="https://mediceberg.github.io/RP/logo.png" alt="REPUTA Logo" style="width:100%;margin-top:12px;border-radius:12px"/>
         </div>
 
         <div>
@@ -99,17 +100,17 @@
       <div class="row section">
         <div class="col-2 card">
           <h3>عن REPUTA</h3>
-          <p class="muted">REPUTA هو توكن يركز على قياس السمعة والموثوقية، مبني لتجارب الائتمان اللامركزي وطرائق التصنيف. تم إصدار التوكن على شبكة Pi Testnet لأغراض الاختبار والتكامل مع المحافظ والـ DEX.</p>
+          <p class="muted">REPUTA هو توكن يركز على قياس السمعة والموثوقية، مبني لتجارب الائتمان اللامركزي وطرائق التصنيف. تم إصدار التوكن على شبكة Pi Testnet لأغراض الاختبار والتكامل مع المحافظ و Pi DEX.</p>
 
           <h4 class="muted" style="margin-top:12px">كيفية إضافة التوكن إلى Pi Wallet</h4>
           <ol class="list">
             <li>تأكد من أن <code class="kv">home_domain</code> مضبوط على حساب الـ Issuer.</li>
             <li>تأكد من أن الملف <code class="kv">/.well-known/pi.toml</code> متاح عبر HTTPS.</li>
-            <li>في Pi Wallet (Testnet) اختر: Tokens → Add Token → ابحث عن <strong>RPT</strong> أو انتظر الفحص التلقائي.</li>
+            <li>في Pi Wallet (Testnet) اختر: Tokens → Add Token → ابحث عن <strong>REPUTA</strong> أو انتظر الفحص التلقائي.</li>
           </ol>
 
           <h4 class="muted" style="margin-top:12px">كيفية تجربة التداول (Liquidity Pool)</h4>
-          <p class="muted">بمجرد ظهور التوكن في المحفظة، يمكنك إنشاء Pool بين <code class="kv">Test-Pi</code> و <code class="kv">RPT</code> داخل محفظة Pi لتجربة Swaps وتداول التوكن.</p>
+          <p class="muted">بمجرد ظهور التوكن في المحفظة، يمكنك إنشاء Pool بين <code class="kv">Test-Pi</code> و <code class="kv">REPUTA</code> داخل محفظة Pi لتجربة Swaps وتداول التوكن.</p>
 
           <h4 class="muted" style="margin-top:12px">ملاحظات أمان</h4>
           <ul class="list">
@@ -121,7 +122,7 @@
         <aside class="col-1 card">
           <h3 class="muted">أداء التوزيع</h3>
           <div class="muted">Distributor balance</div>
-          <div style="font-size:20px;font-weight:700;margin-top:8px">100,000,000 RPT</div>
+          <div style="font-size:20px;font-weight:700;margin-top:8px">10,000,000 REPUTA</div>
 
           <div style="margin-top:16px">
             <button class="btn" onclick="openAddToken()">إظهار في Pi Wallet (Add Token)</button>
@@ -135,26 +136,6 @@
           </div>
         </aside>
       </div>
-
-      <div class="section card">
-        <h3 class="muted">تفاصيل تقنية (سريعة)</h3>
-        <pre style="white-space:pre-wrap;background:rgba(0,0,0,0.18);padding:12px;border-radius:8px;color:#dff4ff;font-size:13px">Issuer: GB6SAOT4KIWL3Z5MPOI5CNOCUKIMZZ5ZZF3YNN7ZO2VDZH5VPQWYCJCI
-Distributor: GBQ2FALQT3KFAICK35TJKGOJWHT43KCCB73G6H546O54L7ET2XVJGLLM
-Asset Code: RPT
-Total supply: 100000000
-Home Domain: mediceberg.github.io/RP
-pi.toml: https://mediceberg.github.io/RP/.well-known/pi.toml</pre>
-      </div>
-
-      <div class="section card">
-        <h3 class="muted">روابط سريعة وإجراءات</h3>
-        <ul class="list">
-          <li>لنسخ أي عنوان اضغط على الأزرار أعلى الصفحة.</li>
-          <li>إن أردت سكربتات Node جاهزة للتوزيع والـ mint أرسل "أريد السكربتات".</li>
-          <li>لأنني أستضيف الملفات عبر GitHub Pages، قد يستغرق الفحص بضع دقائق.</li>
-        </ul>
-      </div>
-
     </main>
 
     <footer>
@@ -167,7 +148,7 @@ pi.toml: https://mediceberg.github.io/RP/.well-known/pi.toml</pre>
     function copyIssuer(){copyToClipboard('GB6SAOT4KIWL3Z5MPOI5CNOCUKIMZZ5ZZF3YNN7ZO2VDZH5VPQWYCJCI')}
     function copyDistributor(){copyToClipboard('GBQ2FALQT3KFAICK35TJKGOJWHT43KCCB73G6H546O54L7ET2XVJGLLM')}
     function openToml(){window.open('https://mediceberg.github.io/RP/.well-known/pi.toml','_blank')}
-    function openAddToken(){alert('افتح تطبيق Pi Wallet على جهازك واذهب إلى Tokens → Add Token → ابحث عن RPT أو انتظر الفحص التلقائي.')}
+    function openAddToken(){alert('افتح تطبيق Pi Wallet على جهازك واذهب إلى Tokens → Add Token → ابحث عن REPUTA أو انتظر الفحص التلقائي.')}
   </script>
 </body>
 </html>
