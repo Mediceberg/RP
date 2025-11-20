@@ -1,0 +1,12 @@
+# ============================
+# REPUTA Token Metadata
+# ============================
+
+[[CURRENCIES]]
+code = "RP"
+issuer = "GB6SAOT4KIWL3Z5MPOI5CNOCUKIMZZ5ZZF3YNN7ZO2VDZH5VPQWYCJCI"
+name = "REPUTA"
+desc = "REPUTA is a digital reputation scoring token on Pi Testnet."
+image = "https://mediceberg.github.io/RP/token.png"
+status = "active"
+website = "https://mediceberg.github.io/RP"
