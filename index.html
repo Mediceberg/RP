@@ -1,50 +1,105 @@
-<!doctype html>
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>REPUTA — Decentralized Reputation System</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>REPUTA — نظام السمعة اللامركزي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  body{margin:0;font-family:'Inter',sans-serif;background:#05070d;color:#e8eef7;overflow-x:hidden}
-  /* Animated Gradient Background */
-  .bg-anim{
-    position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
-    background:linear-gradient(120deg,#0d1220,#10182f,#0d1220);
-    background-size:400% 400%;animation:gradientMove 12s ease infinite;
-  }
-  @keyframes gradientMove{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-  }
-  header{padding:80px 20px;text-align:center}
-  .hero{max-width:900px;margin:auto}
-  .hero img{width:150px;margin-bottom:25px;filter:drop-shadow(0 0 25px #3b82f6aa)}
-  h1{font-size:48px;margin:0;font-weight:700;color:#fff;text-shadow:0 0 18px #1e3a8a66}
-  p{color:#9db4d1;font-size:20px;margin-top:12px;line-height:1.6}
-  .actions{margin-top:35px}
-  .btn{padding:14px 32px;border-radius:14px;font-size:18px;font-weight:600;cursor:pointer;border:0;transition:.3s}
-  .primary{background:linear-gradient(90deg,#06b6d4,#3b82f6,#6366f1);color:#fff;box-shadow:0 0 20px #1e40af77}
-  .primary:hover{transform:translateY(-3px);box-shadow:0 0 35px #2563ebaa}
+/* 1. Global Reset & Typography */
+body{
+    margin:0;
+    font-family:'Cairo', 'Inter', sans-serif; /* استخدام خط عربي أولاً */
+    background:#0b0f19;
+    color:#e8eef7;
+    text-align: right; /* محاذاة النص لليمين */
+}
+header{padding:40px 20px;text-align:center}
+.hero{max-width:800px;margin:auto}
+.hero img{width:140px;margin-bottom:20px}
+h1{font-size:42px;margin:0}
+p{color:#94a3b8;font-size:18px;margin-top:10px;line-height:1.6}
 
-  section{padding:70px 20px;max-width:1250px;margin:auto}
-  h2{text-align:center;font-size:36px;color:#fff;margin-bottom:15px}
-  .subtitle{text-align:center;color:#9fb4d6;font-size:18px;margin-bottom:40px}
+/* 2. Actions & Buttons */
+.actions{margin-top:30px}
+.btn{padding:12px 26px;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;border:0;transition: background 0.3s;}
+.primary{background:linear-gradient(90deg,#06b6d4,#3b82f6);color:#fff;box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);}
+.primary:hover{background:linear-gradient(90deg,#3b82f6,#06b6d4);}
 
-  .features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:25px;margin-top:40px}
-  .card{background:rgba(17,25,40,0.6);backdrop-filter:blur(12px);padding:25px;border-radius:16px;border:1px solid #1d293a;transition:.3s}
-  .card:hover{transform:translateY(-5px);box-shadow:0 10px 25px #0006;border-color:#3b82f6aa}
-  h3{margin:0;font-size:22px;color:#fff;font-weight:600;margin-bottom:10px}
+/* 3. Layout & Sections */
+section{padding:60px 20px;max-width:1100px;margin:auto}
+.section-title{text-align:center;font-size:32px;margin-bottom:20px;color:#fff}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;margin-top:30px}
+.card{background:#111829;padding:22px;border-radius:14px;border:1px solid #1d2433;transition: border-color 0.3s;}
+.card:hover{border-color: #3b82f6;}
+h3{margin:0;font-size:20px;color:#fff}
 
-  footer{text-align:center;padding:25px;color:#6b7280;font-size:15px;border-top:1px solid #111827;margin-top:60px}
-  .lang-switch{position:fixed;top:15px;right:15px;display:flex;gap:8px;z-index:10}
-  .lang-switch button{background:#1e2637;color:#9fb4d6;border:1px solid #2a3550;padding:7px 14px;border-radius:8px;cursor:pointer;transition:.3s}
-  .lang-switch button:hover{background:#334155}
+/* 4. Utility & Footer */
+footer{text-align:center;padding:20px;color:#6b7280;font-size:14px;border-top:1px solid #1d2433;margin-top:40px}
+.lang-switch{position:fixed;top:15px;left:15px; /* تم تغيير الموقع ليناسب RTL */
+    display:flex;gap:8px;z-index:10}
+.lang-switch button{background:#1e2637;color:#9fb4d6;border:1px solid #2a3550;padding:6px 12px;border-radius:8px;cursor:pointer}
+
+/* 5. Custom Styles for Reputa Score Section (RTL Adjustments) */
+.score-flex-container {
+    display:flex;
+    flex-wrap:wrap;
+    /* عكس ترتيب العناصر في RTL */
+    flex-direction: row-reverse; 
+    align-items:center;
+    justify-content:space-between;
+    max-width:900px;
+    margin:auto;
+    padding-top:20px;
+}
+.score-details ul{
+    list-style:none;
+    padding-right:0; /* استخدام padding-right بدلاً من padding-left */
+    margin-top: 20px;
+}
+.score-details ul li{
+    margin-bottom:15px;
+    position:relative;
+    padding-right: 0; 
+    padding-left: 35px; /* لمساحة أيقونة التعداد */
+    color: #e8eef7;
+}
+.score-details ul li::before {
+    content: '⭐';
+    position: absolute;
+    left: 0; /* تم تغيير الموقع ليناسب RTL */
+    right: auto;
+    color: #06b6d4;
+    font-size: 1.2em;
+}
+.score-details {
+    flex: 1 1 400px; 
+    padding-left: 20px; /* تغيير المساحة الداخلية */
+    padding-right: 0;
+}
+.score-image {
+    flex: 1 1 300px; 
+    text-align: center;
+}
+.score-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto; 
+    border-radius: 20px; 
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+}
+
+/* 6. Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero img{width:100px;margin-bottom:15px}
+    h1{font-size:32px}
+    .section-title{font-size:26px}
+    .score-details{padding-left:0; margin-bottom:20px;}
+}
 </style>
 </head>
 <body>
-<div class="bg-anim"></div>
+
 <div class="lang-switch">
   <button onclick="setLang('en')">EN</button>
   <button onclick="setLang('ar')">AR</button>
@@ -52,56 +107,83 @@
 
 <header>
   <div class="hero">
-    <img src="data:image/png;base64,REPUTA_LOGO_BASE64" alt="Reputa Logo" />
-    <h1 data-en="Reputa — Decentralized Reputation System" data-ar="Reputa — نظام السمعة اللامركزي">Reputa — Decentralized Reputation System</h1>
-    <p data-en="A next‑generation trust engine built on Pi Network, enabling secure reputation scoring for people and businesses." data-ar="محرك ثقة من الجيل الجديد مبني على شبكة Pi، يتيح نظام سمعة آمن للأفراد والشركات.">A next‑generation trust engine built on Pi Network.</p>
+    <img src="" alt="شعار REPUTA"> 
+    <h1>REPUTA — نظام السمعة اللامركزي</h1>
+    <p>بناء الثقة في عالم لامركزي. يوفر ريبوتا (REPUTA) مقياساً موثوقاً للسمعة، يمكن استخدامه عبر سلاسل الكتل المتعددة لتمكين اتخاذ القرارات الذكية.</p>
     <div class="actions">
-      <button class="btn primary" onclick="openPi()" data-en="Sign with Pi Browser" data-ar="تسجيل الدخول عبر Pi Browser">Sign with Pi Browser</button>
+      <button class="btn primary">ابدأ الآن</button>
     </div>
   </div>
 </header>
 
-<section>
-  <h2 data-en="Core Features" data-ar="الميزات الرئيسية">Core Features</h2>
-  <p class="subtitle" data-en="Why Reputa is the future of trust in the Pi ecosystem." data-ar="لماذا Reputa هو مستقبل السمعة داخل نظام Pi.">Why Reputa is the future of trust in the Pi ecosystem.</p>
+<hr>
 
-  <div class="features-grid">
-    <div class="card">
-      <h3 data-en="Decentralized Reputation" data-ar="سمعة لامركزية">Decentralized Reputation</h3>
-      <p data-en="Reputa stores trust scores on-chain, ensuring transparency and preventing manipulation." data-ar="يقوم Reputa بتخزين درجات السمعة على السلسلة لضمان الشفافية ومنع التلاعب.">Reputa stores trust scores on-chain.</p>
+<section id="features">
+    <h2 class="section-title">لماذا تحتاج إلى REPUTA؟</h2>
+    <div class="features-grid">
+        <div class="card">
+            <h3>🛡️ التحقق من الهوية</h3>
+            <p>نقدم طريقة لربط الهوية الرقمية بأدلة السمعة القابلة للتحقق، مما يقلل من الغش والاحتيال.</p>
+        </div>
+        <div class="card">
+            <h3>🔗 قابلية التشغيل البيني</h3>
+            <p>السمعة التي تبنيها على منصة واحدة يمكن استخدامها والاستفادة منها على منصات متعددة، عبر سلاسل الكتل المختلفة.</p>
+        </div>
+        <div class="card">
+            <h3>🚀 اقتصاد الرموز</h3>
+            <p>يتم مكافأة المستخدمين على المساهمات الصادقة والإيجابية في النظام، مما يعزز السلوك المسؤول.</p>
+        </div>
+        <div class="card">
+            <h3>🔒 الخصوصية والأمان</h3>
+            <p>يتم تخزين بيانات السمعة بطريقة آمنة ومشفرة، مع منح المستخدم السيطرة الكاملة على بياناته.</p>
+        </div>
     </div>
-
-    <div class="card">
-      <h3 data-en="Pi Identity Integration" data-ar="تكامل الهوية في Pi">Pi Identity Integration</h3>
-      <p data-en="Users verify their identity through Pi Browser for secure interaction." data-ar="يقوم المستخدمون بالتحقق من هويتهم عبر Pi Browser لضمان تفاعل آمن.">Pi Browser identity verification.</p>
-    </div>
-
-    <div class="card">
-      <h3 data-en="Smart Trust Scoring" data-ar="تقييم ثقة ذكي">Smart Trust Scoring</h3>
-      <p data-en="AI‑assisted scoring based on activity, feedback, and user interactions." data-ar="تقييم مدعوم بالذكاء الاصطناعي يعتمد على النشاط والتقييمات والتفاعلات.">AI‑assisted scoring.</p>
-    </div>
-
-    <div class="card">
-      <h3 data-en="Privacy‑First Architecture" data-ar="خصوصية متقدمة">Privacy‑First Architecture</h3>
-      <p data-en="Users control what to reveal. All data is encrypted end‑to‑end." data-ar="للمستخدم السيطرة على البيانات المعروضة، وجميع البيانات مشفرة بالكامل.">Encrypted, private by design.</p>
-    </div>
-  </div>
 </section>
 
+<hr>
+
+<section id="score">
+    <h2 class="section-title">كيف يعمل مقياس REPUTA؟</h2>
+    <div class="score-flex-container">
+        <div class="score-details">
+            <p>مقياس REPUTA هو رقم يعكس تاريخ وسلوك المستخدم داخل النظام البيئي اللامركزي. يتم حسابه بناءً على خوارزمية معقدة تأخذ في الاعتبار عدة عوامل رئيسية:</p>
+            <ul>
+                <li>تاريخ المعاملات الناجحة والموثوقة.</li>
+                <li>تفاعل المجتمع وتقييمات الأطراف المقابلة.</li>
+                <li>العمر الزمني للحساب والنشاط المستمر.</li>
+                <li>حجم الرهانات أو الضمانات المقدمة (إن وجدت).</li>
+            </ul>
+        </div>
+        <div class="score-image">
+            <img src="" alt="رسم بياني لمقياس ريبوتا">
+        </div>
+    </div>
+</section>
+
+<hr>
+
 <footer>
-  © <span id="year"></span> Reputa — All rights reserved.
+  &copy; <span id="year">2024</span> REPUTA. جميع الحقوق محفوظة.
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+    // وظيفة بسيطة لتغيير اللغة (تتطلب إعادة تحميل الصفحة أو إعادة بناء المحتوى)
+    function setLang(lang) {
+        // يمكن إضافة منطق لتغيير النصوص هنا (مثلاً، تحميل ملف JSON للترجمة)
+        if (lang === 'ar') {
+            document.documentElement.setAttribute('lang', 'ar');
+            document.documentElement.setAttribute('dir', 'rtl');
+        } else {
+            document.documentElement.setAttribute('lang', 'en');
+            document.documentElement.setAttribute('dir', 'ltr');
+        }
+        // مثال: إعادة تحميل الصفحة بعد التغيير
+        // window.location.reload(); 
+        alert("تم تغيير اتجاه ولغة الصفحة إلى: " + lang + ". في مشروع حقيقي، سيتم تبديل المحتوى النصي هنا.");
+    }
 
-  function openPi(){ window.location = 'pi://reputa-auth.app'; }
-
-  function setLang(l){
-    const all = document.querySelectorAll('[data-en]');
-    all.forEach(el=> el.textContent = el.getAttribute('data-'+l));
-    document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
-  }
+    // تحديث السنة في الفوتر تلقائياً
+    document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </body>
