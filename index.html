@@ -3,135 +3,177 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>REPUTA — Official Token Page</title>
+  <title>REPUTA — Professional Ecosystem</title>
   <style>
     :root {
-      --bg: #0b1020;
-      --card: #151c2c;
+      --bg: #050a18;
+      --card: #0f172a;
       --muted: #94a3b8;
       --accent: #4db5ff;
+      --accent-glow: rgba(77, 181, 255, 0.4);
       --pi-color: #ffa500;
       --tg-color: #229ED9;
-      --glass: rgba(255, 255, 255, 0.04);
+      --glass: rgba(255, 255, 255, 0.03);
     }
 
-    * { box-sizing: border-box; transition: all 0.3s ease; }
+    * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     body {
       margin: 0; background: var(--bg);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #e6eef8; line-height: 1.6;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: #f1f5f9; line-height: 1.7; overflow-x: hidden;
     }
 
-    .container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+    /* Background Decoration */
+    body::before {
+      content: ""; position: fixed; top: -10%; left: -10%; width: 40%; height: 40%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      z-index: -1; filter: blur(60px); opacity: 0.3;
+    }
 
-    /* Language Switcher */
-    .lang-switcher { display: flex; justify-content: flex-end; margin-bottom: 10px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+    /* Header & Lang Switcher */
+    .top-nav { display: flex; justify-content: flex-end; padding: 10px 0; }
     .lang-btn { 
       background: var(--glass); color: var(--accent); border: 1px solid var(--accent);
-      padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold;
+      padding: 6px 18px; border-radius: 25px; cursor: pointer; font-weight: 600; font-size: 13px;
     }
 
     header {
-      text-align: center; margin-bottom: 40px; padding: 20px;
-      background: linear-gradient(180deg, rgba(77,181,255,0.05) 0%, transparent 100%);
-      border-radius: 30px;
+      text-align: center; padding: 60px 20px;
+      border-radius: 40px; background: radial-gradient(circle at center, rgba(77,181,255,0.08) 0%, transparent 100%);
     }
 
-    .logo-circle {
-      width: 80px; height: 80px; background: linear-gradient(135deg, var(--accent), #7efcff);
-      border-radius: 20px; display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 15px; color: #0b1020; font-size: 35px; font-weight: 800;
-      box-shadow: 0 10px 25px rgba(77,181,255,0.2);
+    .logo-glow {
+      width: 90px; height: 90px; background: linear-gradient(135deg, var(--accent), #7efcff);
+      border-radius: 24px; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 25px; color: #050a18; font-size: 42px; font-weight: 900;
+      box-shadow: 0 0 30px var(--accent-glow); transform: rotate(-5deg);
     }
 
-    .main-nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px; }
+    h1 { font-size: 48px; margin: 0; letter-spacing: -1px; background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .subtitle { color: var(--muted); font-size: 18px; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+    .main-nav { display: flex; justify-content: center; gap: 15px; margin-top: 35px; flex-wrap: wrap; }
+
+    /* Features Section */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 60px 0; }
+    .feature-card {
+      background: var(--glass); border: 1px solid rgba(255,255,255,0.05);
+      padding: 30px; border-radius: 24px; text-align: center;
+    }
+    .feature-card:hover { background: rgba(255,255,255,0.06); transform: translateY(-10px); border-color: var(--accent); }
+    .feature-icon { font-size: 32px; margin-bottom: 15px; display: block; }
 
     /* Buttons */
     .btn {
-      padding: 12px 25px; border-radius: 12px; border: none; cursor: pointer;
-      font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 28px; border-radius: 14px; border: none; cursor: pointer;
+      font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; font-size: 15px;
     }
-    .btn-pi { background: var(--pi-color); color: #000; }
-    .btn-tg { background: var(--tg-color); color: #fff; }
-    .btn-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+    .btn-pi { background: var(--pi-color); color: #000; box-shadow: 0 4px 15px rgba(255,165,0,0.3); }
+    .btn-tg { background: var(--tg-color); color: #fff; box-shadow: 0 4px 15px rgba(34,158,217,0.3); }
+    .btn-copy { background: #1e293b; color: #fff; border: 1px solid rgba(255,255,255,0.1); width: 100%; justify-content: center; }
+    .btn-copy:hover { background: #334155; }
 
-    /* Grid */
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-    .card { background: var(--card); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
-
-    .token-info { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .address-box { 
-      background: #090e1a; padding: 12px; border-radius: 10px; font-family: monospace; 
-      font-size: 11px; word-break: break-all; margin-top: 8px; color: var(--muted);
-      border: 1px solid rgba(255,255,255,0.05);
+    /* Info Cards */
+    .info-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 25px; }
+    .card { background: var(--card); padding: 35px; border-radius: 28px; border: 1px solid rgba(255,255,255,0.03); position: relative; overflow: hidden; }
+    
+    .data-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .address-display { 
+      background: #000; padding: 15px; border-radius: 12px; font-family: 'Courier New', monospace; 
+      font-size: 12px; word-break: break-all; margin: 15px 0; color: #10b981; border: 1px dashed #10b981;
     }
 
-    footer { text-align: center; margin-top: 50px; color: var(--muted); font-size: 14px; }
+    footer { text-align: center; margin: 80px 0 40px; color: var(--muted); border-top: 1px solid var(--glass); padding-top: 30px; }
 
-    [lang="ar"] { direction: rtl; font-family: 'Segoe UI', Tahoma, sans-serif; }
+    [lang="ar"] { direction: rtl; }
 
-    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 850px) {
+      .features-grid, .info-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 32px; }
+    }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <div class="lang-switcher">
+  <div class="top-nav">
     <button class="lang-btn" onclick="toggleLang()" id="langBtn">العربية</button>
   </div>
 
   <header>
-    <div class="logo-circle">R</div>
-    <h1 id="title">REPUTA TOKEN</h1>
-    <p id="subtitle" style="color:var(--muted)">Reputation & Credibility System on Pi Testnet</p>
+    <div class="logo-glow">R</div>
+    <h1 id="title">REPUTA SCORE ECOSYSTEM</h1>
+    <p id="subtitle" class="subtitle">The first decentralized reputation verification protocol on Pi Testnet.</p>
     
     <div class="main-nav">
       <a href="https://reputa3833.pinet.com" target="_blank" class="btn btn-pi">
-        <span id="btnApp">Open REPUTA App</span>
+        <span id="btnApp">Launch Pi App</span>
       </a>
       <a href="https://t.me/+zxYP2x_4IWljOGM0" target="_blank" class="btn btn-tg">
-        <span id="btnTg">Join Telegram</span>
+        <span id="btnTg">Join Community</span>
       </a>
     </div>
   </header>
 
-  <div class="grid">
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">🛡️</span>
+      <h3 id="f1-t">Trustless</h3>
+      <p id="f1-d" style="color:var(--muted); font-size:14px">Verified reputation score built on blockchain transparency.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⚡</span>
+      <h3 id="f2-t">Pi Native</h3>
+      <p id="f2-d" style="color:var(--muted); font-size:14px">Seamlessly integrated with Pi Wallet and Pi Browser ecosystem.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">💎</span>
+      <h3 id="f3-t">Limited Supply</h3>
+      <p id="f3-d" style="color:var(--muted); font-size:14px">Strategic 10M supply to ensure value and stability within the network.</p>
+    </div>
+  </div>
+
+  <div class="info-grid">
     <div class="card">
-      <h3 id="detailsTitle">Token Details</h3>
-      <div class="token-info">
-        <span id="labelName">Name</span>
+      <h2 id="detailsTitle">Technical Specification</h2>
+      <div class="data-row">
+        <span id="labelName">Asset Name</span>
         <span style="color:var(--accent); font-weight:bold">REPUTA</span>
       </div>
-      <div class="token-info">
-        <span id="labelSymbol">Symbol</span>
+      <div class="data-row">
+        <span id="labelSymbol">Asset Code</span>
         <span style="color:var(--accent); font-weight:bold">REPUTA</span>
       </div>
-      <div class="token-info">
-        <span id="labelSupply">Total Supply</span>
+      <div class="data-row">
+        <span id="labelSupply">Total Issuance</span>
         <span>10,000,000</span>
       </div>
-      <div style="margin-top: 20px;">
-        <button class="btn btn-outline" style="width:100%; justify-content:center" onclick="copyIssuer()" id="btnCopy">Copy Issuer Address</button>
+      
+      <p id="copyHint" style="font-size:13px; color:var(--muted); margin-top:20px">Official Issuer Address:</p>
+      <div class="address-display">
+        GB6SAOT4KIWL3Z5MPOI5CNOCUKIMZZ5ZZF3YNN7ZO2VDZH5VPQWYCJCI
       </div>
+      <button class="btn btn-copy" onclick="copyIssuer()" id="btnCopy">Copy Address</button>
     </div>
 
-    <div class="card">
-      <h3 id="guideTitle">How to Add</h3>
-      <p id="guideText" style="color:var(--muted); font-size: 14px;">
-        1. Open Pi Wallet (Testnet mode).<br>
-        2. Go to 'Add Token'.<br>
-        3. Search for REPUTA or paste the Issuer address.<br>
-        4. Confirm the trustline.
-      </p>
-      <div class="address-box">
-        GB6SAOT4KIWL3Z5MPOI5CNOCUKIMZZ5ZZF3YNN7ZO2VDZH5VPQWYCJCI
+    <div class="card" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);">
+      <h2 id="guideTitle">Quick Start</h2>
+      <ol id="guideSteps" style="color:var(--muted); padding-left:20px; font-size:15px">
+        <li>Switch Pi Wallet to <b>Testnet</b></li>
+        <li>Click <b>'Add Token'</b></li>
+        <li>Enter <b>REPUTA</b> or Issuer Address</li>
+        <li>Enable <b>Trustline</b></li>
+      </ol>
+      <div style="margin-top:30px; padding:15px; background:rgba(255,255,255,0.05); border-radius:12px">
+        <p id="appDesc" style="font-size:13px; margin:0">Access our specialized dashboard via Pi Browser to track your scores.</p>
       </div>
     </div>
   </div>
 
   <footer id="footerText">
-    Created by TechNews Team · REPUTA Project · 2025
+    Developed by REPUTATION SCORE Global · Built on Pi Network · 2025
   </footer>
 </div>
 
@@ -141,33 +183,37 @@
   const translations = {
     en: {
       langBtn: 'العربية',
-      title: 'REPUTA TOKEN',
-      subtitle: 'Reputation & Credibility System on Pi Testnet',
-      btnApp: 'Open REPUTA App',
-      btnTg: 'Join Telegram',
-      detailsTitle: 'Token Details',
-      labelName: 'Name',
-      labelSymbol: 'Symbol',
-      labelSupply: 'Total Supply',
-      btnCopy: 'Copy Issuer Address',
-      guideTitle: 'How to Add',
-      guideText: '1. Open Pi Wallet (Testnet mode). 2. Go to Add Token. 3. Search for REPUTA or paste the Issuer address. 4. Confirm the trustline.',
-      footer: 'Created by TechNews Team · REPUTA Project · 2025'
+      title: 'REPUTA ECOSYSTEM',
+      subtitle: 'The first decentralized reputation verification protocol on Pi Testnet.',
+      btnApp: 'Launch Pi App',
+      btnTg: 'Join Community',
+      f1_t: 'Trustless', f1_d: 'Verified reputation scores built on blockchain transparency.',
+      f2_t: 'Pi Native', f2_d: 'Seamlessly integrated with Pi Wallet and Pi Browser ecosystem.',
+      f3_t: 'Limited Supply', f3_d: 'Strategic 10M supply to ensure value and stability within the network.',
+      detailsTitle: 'Technical Specification',
+      labelName: 'Asset Name', labelSymbol: 'Asset Code', labelSupply: 'Total Issuance',
+      btnCopy: 'Copy Address', copyHint: 'Official Issuer Address:',
+      guideTitle: 'Quick Start',
+      guideSteps: '<li>Switch Pi Wallet to <b>Testnet</b></li><li>Click <b>Add Token</b></li><li>Enter <b>REPUTA</b> or Issuer Address</li><li>Enable <b>Trustline</b></li>',
+      appDesc: 'Access our specialized dashboard via Pi Browser to track your scores.',
+      footer: 'Developed by TechNews Global · Built on Pi Network · 2025'
     },
     ar: {
       langBtn: 'English',
-      title: 'توكن REPUTA',
-      subtitle: 'نظام السمعة والموثوقية على شبكة Pi Testnet',
-      btnApp: 'افتح تطبيق REPUTA',
-      btnTg: 'انضم للتليجرام',
-      detailsTitle: 'تفاصيل التوكن',
-      labelName: 'الاسم',
-      labelSymbol: 'الرمز',
-      labelSupply: 'الإجمالي',
-      btnCopy: 'نسخ عنوان المصدر',
-      guideTitle: 'كيفية الإضافة',
-      guideText: '1. افتح محفظة Pi (وضع Testnet). 2. اختر إضافة توكن. 3. ابحث عن REPUTA أو الصق عنوان المصدر. 4. قم بتأكيد الإضافة.',
-      footer: 'تم الإنشاء بواسطة فريق TechNews · مشروع REPUTA · 2025'
+      title: 'نظام ريبوتا المتكامل',
+      subtitle: 'أول بروتوكول لامركزي للتحقق من السمعة على شبكة Pi Testnet.',
+      btnApp: 'تشغيل التطبيق',
+      btnTg: 'انضم للمجتمع',
+      f1_t: 'موثوقية كاملة', f1_d: 'تقييمات سمعة تم التحقق منها بناءً على شفافية البلوكشين.',
+      f2_t: 'بيئة Pi الأصلية', f2_d: 'متوافق تماماً مع محفظة Pi ومتصفح Pi Browser.',
+      f3_t: 'إصدار محدود', f3_d: 'إجمالي 10 مليون توكن لضمان القيمة والاستقرار داخل الشبكة.',
+      detailsTitle: 'المواصفات التقنية',
+      labelName: 'اسم الأصول', labelSymbol: 'رمز التوكن', labelSupply: 'إجمالي الإصدار',
+      btnCopy: 'نسخ العنوان', copyHint: 'عنوان المصدر الرسمي (Issuer):',
+      guideTitle: 'بداية سريعة',
+      guideSteps: '<li>حول محفظة Pi إلى <b>Testnet</b></li><li>اضغط على <b>إضافة توكن</b></li><li>ابحث عن <b>REPUTA</b> أو عنوان المصدر</li><li>قم بتفعيل <b>خط الثقة</b></li>',
+      appDesc: 'ادخل إلى لوحة التحكم الخاصة بنا عبر متصفح Pi لتتبع تقييماتك.',
+      footer: 'تم التطوير بواسطة فريق TechNews العالمي · بُني على شبكة Pi · 2025'
     }
   };
 
@@ -184,19 +230,27 @@
     document.getElementById('subtitle').innerText = t.subtitle;
     document.getElementById('btnApp').innerText = t.btnApp;
     document.getElementById('btnTg').innerText = t.btnTg;
+    document.getElementById('f1-t').innerText = t.f1_t; document.getElementById('f1-d').innerText = t.f1_d;
+    document.getElementById('f2-t').innerText = t.f2_t; document.getElementById('f2-d').innerText = t.f2_d;
+    document.getElementById('f3-t').innerText = t.f3_t; document.getElementById('f3-d').innerText = t.f3_d;
     document.getElementById('detailsTitle').innerText = t.detailsTitle;
     document.getElementById('labelName').innerText = t.labelName;
     document.getElementById('labelSymbol').innerText = t.labelSymbol;
     document.getElementById('labelSupply').innerText = t.labelSupply;
     document.getElementById('btnCopy').innerText = t.btnCopy;
+    document.getElementById('copyHint').innerText = t.copyHint;
     document.getElementById('guideTitle').innerText = t.guideTitle;
-    document.getElementById('guideText').innerText = t.guideText;
+    document.getElementById('guideSteps').innerHTML = t.guideSteps;
+    document.getElementById('appDesc').innerText = t.appDesc;
     document.getElementById('footerText').innerText = t.footer;
   }
 
   function copyIssuer() {
     navigator.clipboard.writeText('GB6SAOT4KIWL3Z5MPOI5CNOCUKIMZZ5ZZF3YNN7ZO2VDZH5VPQWYCJCI');
-    alert(currentLang === 'en' ? 'Address Copied!' : 'تم نسخ العنوان!');
+    const btn = document.getElementById('btnCopy');
+    const originalText = btn.innerText;
+    btn.innerText = currentLang === 'en' ? '✓ Copied' : '✓ تم النسخ';
+    setTimeout(() => btn.innerText = originalText, 2000);
   }
 </script>
 
